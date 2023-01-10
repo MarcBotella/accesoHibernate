@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Generated 10 ene 2023 11:23:34 by Hibernate Tools 6.1.5.Final --><!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class catalog="sakila" name="pojos.Store" optimistic-lock="none" table="store">
+        <id name="storeId" type="java.lang.Byte">
+            <column name="store_id"/>
+            <generator class="identity"/>
+        </id>
+        <property name="managerStaffId" type="byte">
+            <column name="manager_staff_id" not-null="true" unique="true"/>
+        </property>
+        <property name="addressId" type="short">
+            <column name="address_id" not-null="true"/>
+        </property>
+        <property name="lastUpdate" type="timestamp">
+            <column length="19" name="last_update" not-null="true"/>
+        </property>
+        <set fetch="select" inverse="true" lazy="true" name="inventories" table="inventory">
+            <key>
+                <column name="store_id" not-null="true"/>
+            </key>
+            <one-to-many class="pojos.Inventory"/>
+        </set>
+    </class>
+</hibernate-mapping>

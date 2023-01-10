@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Generated 10 ene 2023 11:23:34 by Hibernate Tools 6.1.5.Final --><!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class catalog="sakila" name="pojos.Rental" optimistic-lock="none" table="rental">
+        <id name="rentalId" type="java.lang.Integer">
+            <column name="rental_id"/>
+            <generator class="identity"/>
+        </id>
+        <many-to-one class="pojos.Inventory" fetch="select" name="inventory">
+            <column name="inventory_id" not-null="true"/>
+        </many-to-one>
+        <property name="rentalDate" type="timestamp">
+            <column length="19" name="rental_date" not-null="true"/>
+        </property>
+        <property name="customerId" type="short">
+            <column name="customer_id" not-null="true"/>
+        </property>
+        <property name="returnDate" type="timestamp">
+            <column length="19" name="return_date"/>
+        </property>
+        <property name="staffId" type="byte">
+            <column name="staff_id" not-null="true"/>
+        </property>
+        <property name="lastUpdate" type="timestamp">
+            <column length="19" name="last_update" not-null="true"/>
+        </property>
+    </class>
+</hibernate-mapping>

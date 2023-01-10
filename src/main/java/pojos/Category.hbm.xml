@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Generated 10 ene 2023 11:23:34 by Hibernate Tools 6.1.5.Final --><!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class catalog="sakila" name="pojos.Category" optimistic-lock="none" table="category">
+        <id name="categoryId" type="java.lang.Byte">
+            <column name="category_id"/>
+            <generator class="identity"/>
+        </id>
+        <property name="name" type="string">
+            <column length="25" name="name" not-null="true"/>
+        </property>
+        <property name="lastUpdate" type="timestamp">
+            <column length="19" name="last_update" not-null="true"/>
+        </property>
+    </class>
+</hibernate-mapping>
